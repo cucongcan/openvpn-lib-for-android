@@ -23,16 +23,8 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v3
       
-    - name: Grant execute permission to gradlew
-      # The user's project is missing the gradlew wrapper. 
-      # This command will fail, but it's the standard step.
-      # The user will need to add the wrapper to their project.
-      run: chmod +x gradlew
-
     - name: Build with Gradle
-      # The user's project is missing the gradlew wrapper.
-      # This command will fail.
-      run: ./gradlew build
+      run: gradle build
 
     - name: Upload AAR Artifact
       uses: actions/upload-artifact@v4
